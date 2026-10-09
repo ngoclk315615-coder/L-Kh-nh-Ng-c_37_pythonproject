@@ -36,7 +36,7 @@ df['Tổng kết'] = (
 ).round(2)
 
 
-# 4. Xếp loại sinh viên (Đã sửa lỗi định nghĩa hàm 'def')
+# 4. Xếp loại sinh viên
 def xep_loai(diem):
     if diem >= 8.5:
         return 'Giỏi'
@@ -50,11 +50,11 @@ def xep_loai(diem):
 
 df['Xếp loại'] = df['Tổng kết'].apply(xep_loai)
 
-# Hiển thị Bảng điểm trên Web App[cite: 3]
+# Hiển thị Bảng điểm trên Web App
 st.subheader("📋 Bảng điểm của 10 sinh viên")
 st.dataframe(df, use_container_width=True)
 
-# 5. Thống kê thông tin lớp học[cite: 3]
+# 5. Thống kê thông tin lớp học
 st.subheader("📊 Thống kê lớp học")
 dtk_tb = df["Tổng kết"].mean()
 sv_max = df.loc[df["Tổng kết"].idxmax()]
@@ -73,7 +73,7 @@ col4.metric("Số sinh viên đạt (≥ 5.0)", f"{so_sv_dat}/{len(df)}")
 
 st.divider()
 
-# 6. Danh sách xổ xuống (Selectbox) tra cứu sinh viên[cite: 3]
+# 6. Danh sách xổ xuống (Selectbox) tra cứu sinh viên
 st.subheader("🔍 Tra cứu thông tin sinh viên")
 selected_student = st.selectbox("Chọn một sinh viên:", df['Họ và tên'])
 
@@ -88,7 +88,7 @@ if selected_student:
 
 st.divider()
 
-# 7. Trực quan hóa bằng biểu đồ cột ngang (Dùng fig, ax trong Streamlit)[cite: 3]
+# 7. Trực quan hóa bằng biểu đồ cột ngang
 st.subheader("📈 Biểu đồ điểm tổng kết")
 fig, ax = plt.subplots(figsize=(9, 5.5))
 ax.barh(df['Họ và tên'], df['Tổng kết'], color='#5b9bd5', height=0.55)
@@ -102,9 +102,8 @@ ax.spines['right'].set_visible(False)
 ax.spines['left'].set_visible(False)
 ax.spines['bottom'].set_color('#cccccc')
 
-# Hiển thị biểu đồ ra màn hình Streamlit
 st.pyplot(fig)
 
-# 8. Thông tin sinh viên tạo app ở cuối trang (chữ nhỏ)[cite: 3]
+# 8. Thông tin sinh viên tạo app ở cuối trang (chữ nhỏ)
 st.markdown("---")
-st.caption("Người thực hiện: **Nguyễn Văn A** | MSSV: **12345678**")
+st.caption("Người thực hiện: **Lê Khánh Ngọc* | MSSV: **031307015615**")
