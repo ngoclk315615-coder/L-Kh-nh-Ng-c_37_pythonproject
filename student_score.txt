@@ -1,32 +1,3 @@
-Python 3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
-...
-... #4.Thống kê.
-... dtk_tb = df["Tổng kết"].mean()
-... sv_max = df.loc[df["Tổng kết"].idxmax()]
-... sv_min = df.loc[df["Tổng kết"].idxmin()]
-... so_sv_dat = (df["Tổng kết"] >= 5.0).sum()
-... print("=== KẾT QUẢ THỐNG KÊ ===")
-... print(f"1. Điểm tổng kết trung bình của lớp: {dtk_tb:.2f}")
-... print(f"2. Sinh viên điểm cao nhất: {sv_max['Họ và tên']} ({sv_max['Tổng kết']} điểm)")
-... print(f"3. Sinh viên điểm thấp nhất: {sv_min['Họ và tên']} ({sv_min['Tổng kết']} điểm)")
-... print(f"4. Số sinh viên đạt (Điểm tổng kết >= 5.0): {so_sv_dat}/{len(df)} sinh viên\n")
-...
-... #5.Trực quan hóa.
-... plt.figure(figsize=(9, 5.5))
-... plt.barh(
-...     df['Họ và tên'],
-...     df['Tổng kết'],
-...     color='#5b9bd5',
-...     height=0.55,)
-... plt.gca().invert_yaxis()
-... plt.title('Điểm tổng kết của 10 sinh viên', fontsize=13, fontweight='bold', pad=12)
-... plt.xlabel('Điểm tổng kết', fontsize=11)
-... plt.ylabel('Họ và tên sinh viên', fontsize=11)
-... plt.xlim(0, 10)
-... plt.gca().spines['top'].set_visible(False)
-... plt.gca().spines['right'].set_visible(False)
-... plt.gca().spines['left'].set_visible(False)
-... plt.gca().spines['bottom'].set_color('#cccccc')
-... plt.tight_layout()
-... plt.show()
+streamlit
+pandas
+matplotlib
